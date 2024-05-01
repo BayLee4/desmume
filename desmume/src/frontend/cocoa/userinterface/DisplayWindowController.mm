@@ -1697,8 +1697,8 @@ static std::unordered_map<NSScreen *, DisplayWindowController *> _screenMap; // 
 	uint8_t x = 0;
 	uint8_t y = 0;
 	
-	if (displayMode != ClientDisplayMode_Main)
-	{
+//	if (displayMode != ClientDisplayMode_Main)
+//	{
 		const ClientDisplayPresenterProperties &props = cdv->Get3DPresenter()->GetPresenterProperties();
 		const double scaleFactor = cdv->Get3DPresenter()->GetScaleFactor();
 		const NSEventType eventType = [theEvent type];
@@ -1710,7 +1710,7 @@ static std::unordered_map<NSScreen *, DisplayWindowController *> _screenMap; // 
 		cdv->GetNDSPoint(props,
 						 props.clientWidth / scaleFactor, props.clientHeight / scaleFactor,
 						 clientLoc.x, clientLoc.y, (int)buttonNumber, isInitialMouseDown, x, y);
-	}
+//	}
 	
 	MacInputDevicePropertiesEncoder *inputEncoder = [inputManager inputEncoder];
 	const ClientInputDeviceProperties inputProperty = inputEncoder->EncodeMouseInput(buttonNumber, (float)x, (float)y, (buttonPressed) ? true : false);

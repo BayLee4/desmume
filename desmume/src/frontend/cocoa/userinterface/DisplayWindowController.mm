@@ -1687,7 +1687,7 @@ static std::unordered_map<NSScreen *, DisplayWindowController *> _screenMap; // 
 - (BOOL) handleMouseButton:(NSEvent *)theEvent buttonPressed:(BOOL)buttonPressed
 {
 	BOOL isHandled = NO;
-	return isHandled;
+
 	DisplayWindowController *windowController = (DisplayWindowController *)[[self window] delegate];
 	MacDisplayLayeredView *cdv = [localLayer clientDisplayView];
 	const ClientDisplayMode displayMode = cdv->Get3DPresenter()->GetMode();
@@ -1701,7 +1701,8 @@ static std::unordered_map<NSScreen *, DisplayWindowController *> _screenMap; // 
 	if (displayMode != ClientDisplayMode_Main)
 	{
 		const ClientDisplayPresenterProperties &props = cdv->Get3DPresenter()->GetPresenterProperties();
-		const double scaleFactor = cdv->Get3DPresenter()->GetScaleFactor();
+		//const double scaleFactor = cdv->Get3DPresenter()->GetScaleFactor();
+		const double scaleFactor = 1;
 		const NSEventType eventType = [theEvent type];
 		const bool isInitialMouseDown = (eventType == EVENT_MOUSEDOWN_LEFT) || (eventType == EVENT_MOUSEDOWN_RIGHT) || (eventType == EVENT_MOUSEDOWN_OTHER);
 		
